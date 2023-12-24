@@ -1,5 +1,5 @@
 {
-  "name": "nextjs-14-boilerplate-by-gdwmw",
+  "name": "qbills",
   "version": "0.1.0",
   "private": true,
   "scripts": {
@@ -9,25 +9,21 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "next": "14.0.1",
-    "next-themes": "^0.2.1",
+    "next": "14.0.4",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-icons": "^4.11.0",
-    "sharp": "^0.32.6"
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@types/node": "^20.8.10",
-    "@types/react": "^18.2.34",
-    "@types/react-dom": "^18.2.14",
-    "@types/react-icons": "^3.0.0",
+    "@types/node": "^20.10.5",
+    "@types/react": "^18.2.45",
+    "@types/react-dom": "^18.2.18",
     "autoprefixer": "^10.4.16",
-    "eslint": "^8.53.0",
-    "eslint-config-next": "14.0.1",
-    "postcss": "^8.4.31",
-    "prettier": "^3.0.3",
-    "prettier-plugin-tailwindcss": "^0.5.6",
-    "tailwindcss": "^3.3.5",
-    "typescript": "^5.2.2"
+    "eslint": "^8.56.0",
+    "eslint-config-next": "14.0.4",
+    "postcss": "^8.4.32",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.9",
+    "tailwindcss": "^3.4.0",
+    "typescript": "^5.3.3"
   }
 }

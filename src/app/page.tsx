@@ -1,7 +1,9 @@
 import { FC, ReactElement } from "react";
 
-const Home: FC = (): ReactElement => {
+type T = {};
+
+const LandingPage: FC<T> = (): ReactElement => {
   return <></>;
 };
 
-export default Home;
+export default LandingPage;
