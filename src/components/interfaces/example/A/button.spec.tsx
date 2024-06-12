@@ -46,23 +46,49 @@ const ghostSizes: ("sm" | "md" | "lg")[] = ["sm", "md", "lg"];
 const disabled: boolean[] = [false, true];
 /* eslint-enable perfectionist/sort-union-types */
 
-describe("ExampleA Component: Interaction and Styling", () => {
+const component = ({ color, disabled, id, onClickFn, size, type, variant }: any) => (
+  <ExampleA className="example-a-class" color={color} disabled={disabled} id={id} onClick={onClickFn} size={size} type={type} variant={variant}>
+    This is example text
+  </ExampleA>
+);
+
+describe("ExampleA Component Testing", () => {
+  it("ExampleA component should have a id", () => {
+    const { getByTestId } = render(component({ id: "example-a-id" }));
+    expect(getByTestId("example-a")).toHaveAttribute("id", "example-a-id");
+  });
+
+  it("ExampleA component should have a type", () => {
+    const { getByTestId } = render(component({ type: "button" }));
+    expect(getByTestId("example-a")).toHaveAttribute("type", "button");
+  });
+
+  it("ExampleA component should have text", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("example-a")).toHaveTextContent("This is example text");
+  });
+
+  it("ExampleA component should have a class name example-a-class", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("example-a")).toHaveClass("example-a-class");
+  });
+
+  disabled.forEach((disabled) => {
+    it(`ExampleA component should ${!disabled ? "can" : "cannot"} interact when the button is ${!disabled ? "enabled" : "disabled"}`, () => {
+      const onClickFn = jest.fn();
+      const { getByTestId } = render(component({ disabled, onClickFn }));
+      fireEvent.click(getByTestId("example-a"));
+      !disabled ? expect(onClickFn).toHaveBeenCalled() : expect(onClickFn).not.toHaveBeenCalled();
+    });
+  });
+
   variants.forEach((variant) => {
     colors.forEach((color) => {
       sizes.forEach((size) => {
         ghostSizes.forEach((ghostSize) => {
           disabled.forEach((disabled) => {
-            it(`Class for Variant: ${variant}, Color: ${color}, ${size === "lg" && variant !== "ghost" ? "Size: " + size : "Ghost Size :" + ghostSize} is correct and Button ${!disabled ? "can" : "can't"} interact when the button is ${!disabled ? "enabled" : "disabled"}`, () => {
-              const onClickFn = jest.fn();
-              const { getByTestId } = render(
-                <ExampleA color={color} disabled={disabled} onClick={onClickFn} size={size} variant={variant}>
-                  Example
-                </ExampleA>,
-              );
-
-              // ⭐ === FUNCTION === ⭐
-              fireEvent.click(getByTestId("example-a"));
-              !disabled ? expect(onClickFn).toHaveBeenCalled() : expect(onClickFn).not.toHaveBeenCalled();
+            it(`ExampleA component should have Variant: ${variant}, Color: ${color}, ${size === "lg" && variant !== "ghost" ? "Size: " + size : " Ghost Size: " + ghostSize} correctly`, () => {
+              const { getByTestId } = render(component({ color, disabled, size, variant }));
 
               // ⭐ === BASE === ⭐
               variant !== "ghost"
