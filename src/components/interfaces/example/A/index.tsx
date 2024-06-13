@@ -14,8 +14,9 @@ export type TExampleA = {
 
 export const ExampleATWM = ({ className, color, disabled, size, variant }: TExampleA) => {
   return twm(
+    "flex items-center gap-2",
     // ⭐ === BASE === ⭐
-    variant !== "ghost" && "flex items-center justify-center rounded-full",
+    variant !== "ghost" && "justify-center rounded-full",
     !disabled && "active:scale-95",
     disabled && "cursor-not-allowed",
 

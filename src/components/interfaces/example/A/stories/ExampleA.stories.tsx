@@ -1,6 +1,7 @@
 import type { Meta, StoryObj } from "@storybook/react";
 
 import { fn } from "@storybook/test";
+import { FaCrown } from "react-icons/fa";
 
 import Layout from "./Layout";
 
@@ -40,7 +41,11 @@ export const Solid: Story = {
     variant: "solid",
     color: "rose",
     size: "sm",
-    children: "Example",
+    children: (
+      <>
+        <FaCrown data-testid="testing-icon" /> Example
+      </>
+    ),
   },
 };
 
@@ -49,7 +54,11 @@ export const Outline: Story = {
     variant: "outline",
     color: "rose",
     size: "sm",
-    children: "Example",
+    children: (
+      <>
+        <FaCrown data-testid="testing-icon" /> Example
+      </>
+    ),
   },
 };
 
@@ -58,7 +67,11 @@ export const Ghost: Story = {
     variant: "ghost",
     color: "rose",
     size: "sm",
-    children: "Example",
+    children: (
+      <>
+        <FaCrown data-testid="testing-icon" /> Example
+      </>
+    ),
   },
 };
 /* eslint-enable perfectionist/sort-objects */
