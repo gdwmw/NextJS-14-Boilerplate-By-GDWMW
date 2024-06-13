@@ -29,7 +29,7 @@ const meta: Meta<typeof Layout> = {
     layout: "centered",
   },
   tags: ["autodocs"],
-  title: "Components/Example/A",
+  title: "Components/Interfaces/Example/A",
 };
 
 export default meta;
@@ -43,7 +43,8 @@ export const Solid: Story = {
     size: "sm",
     children: (
       <>
-        <FaCrown data-testid="testing-icon" /> Example
+        <FaCrown data-testid="testing-icon" />
+        Example
       </>
     ),
   },
@@ -56,7 +57,8 @@ export const Outline: Story = {
     size: "sm",
     children: (
       <>
-        <FaCrown data-testid="testing-icon" /> Example
+        <FaCrown data-testid="testing-icon" />
+        Example
       </>
     ),
   },
@@ -69,7 +71,8 @@ export const Ghost: Story = {
     size: "sm",
     children: (
       <>
-        <FaCrown data-testid="testing-icon" /> Example
+        <FaCrown data-testid="testing-icon" />
+        Example
       </>
     ),
   },
