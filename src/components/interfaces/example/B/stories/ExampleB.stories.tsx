@@ -31,7 +31,7 @@ export const Primary: Story = {
     text: "This is example text",
     iconColor: "",
     textColor: "",
-    icon: <FaCrown size={70} />,
+    icon: <FaCrown size={75} />,
   },
 };
 /* eslint-enable perfectionist/sort-objects */
