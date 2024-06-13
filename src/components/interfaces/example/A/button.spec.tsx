@@ -1,11 +1,13 @@
 import { fireEvent, render } from "@testing-library/react";
+import { FaCrown } from "react-icons/fa";
 
 import { ExampleA } from "./";
 
 /* eslint-disable perfectionist/sort-objects */
 const classes = {
+  default: "flex items-center gap-2",
   base: {
-    a: "flex items-center justify-center rounded-full",
+    a: "justify-center rounded-full",
     b: "active:scale-95",
     c: "cursor-not-allowed",
   },
@@ -46,35 +48,56 @@ const ghostSizes: ("sm" | "md" | "lg")[] = ["sm", "md", "lg"];
 const disabled: boolean[] = [false, true];
 /* eslint-enable perfectionist/sort-union-types */
 
-const component = ({ color, disabled, id, onClickFn, size, type, variant }: any) => (
-  <ExampleA className="example-a-class" color={color} disabled={disabled} id={id} onClick={onClickFn} size={size} type={type} variant={variant}>
-    This is example text
+const component = ({ color, disabled, onClickFn, size, variant }: any) => (
+  <ExampleA
+    className="testing-class"
+    color={color}
+    disabled={disabled}
+    id="testing-id"
+    onClick={onClickFn}
+    size={size}
+    style={{ color: "#ff0000" }}
+    type="button"
+    variant={variant}
+  >
+    <FaCrown data-testid="testing-icon" />
+    This is testing text
   </ExampleA>
 );
 
 describe("ExampleA Component Testing", () => {
-  it("ExampleA component should have a id", () => {
-    const { getByTestId } = render(component({ id: "example-a-id" }));
-    expect(getByTestId("example-a")).toHaveAttribute("id", "example-a-id");
+  it("Should have a id", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("example-a")).toHaveAttribute("id", "testing-id");
   });
 
-  it("ExampleA component should have a type", () => {
-    const { getByTestId } = render(component({ type: "button" }));
+  it("Should have text", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("example-a")).toHaveTextContent("This is testing text");
+  });
+
+  it("Should have a class name testing-class", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("example-a")).toHaveClass("testing-class");
+  });
+
+  it("Should have a style attribute with value color: #ff0000", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("example-a")).toHaveStyle("color: #ff0000");
+  });
+
+  it("Should have an icon", () => {
+    const { getByTestId } = render(component({}));
+    expect(getByTestId("testing-icon")).toBeInTheDocument();
+  });
+
+  it("Should have a type", () => {
+    const { getByTestId } = render(component({}));
     expect(getByTestId("example-a")).toHaveAttribute("type", "button");
   });
 
-  it("ExampleA component should have text", () => {
-    const { getByTestId } = render(component({}));
-    expect(getByTestId("example-a")).toHaveTextContent("This is example text");
-  });
-
-  it("ExampleA component should have a class name example-a-class", () => {
-    const { getByTestId } = render(component({}));
-    expect(getByTestId("example-a")).toHaveClass("example-a-class");
-  });
-
   disabled.forEach((disabled) => {
-    it(`ExampleA component should ${!disabled ? "can" : "cannot"} interact when the button is ${!disabled ? "enabled" : "disabled"}`, () => {
+    it(`Should ${!disabled ? "can" : "cannot"} interact when the button is ${!disabled ? "enabled" : "disabled"}`, () => {
       const onClickFn = jest.fn();
       const { getByTestId } = render(component({ disabled, onClickFn }));
       fireEvent.click(getByTestId("example-a"));
@@ -87,8 +110,11 @@ describe("ExampleA Component Testing", () => {
       sizes.forEach((size) => {
         ghostSizes.forEach((ghostSize) => {
           disabled.forEach((disabled) => {
-            it(`ExampleA component should have Variant: ${variant}, Color: ${color}, ${size === "lg" && variant !== "ghost" ? "Size: " + size : " Ghost Size: " + ghostSize} correctly`, () => {
+            it(`Should have Variant: ${variant}, Color: ${color}, ${size === "lg" && variant !== "ghost" ? "Size: " + size : " Ghost Size: " + ghostSize} correctly`, () => {
               const { getByTestId } = render(component({ color, disabled, size, variant }));
+
+              // ⭐ === DEFAULT === ⭐
+              expect(getByTestId("example-a")).toHaveClass(classes.default);
 
               // ⭐ === BASE === ⭐
               variant !== "ghost"
