@@ -17,28 +17,28 @@ const component = (
 describe("ExampleB Component Testing", () => {
   it("Should have a id", () => {
     const { getByTestId } = render(component);
-    expect(getByTestId("example-b-container")).toHaveAttribute("id", "testing-id");
-    expect(getByTestId("example-b-icon")).toHaveAttribute("id", "testing-id");
-    expect(getByTestId("example-b-text")).toHaveAttribute("id", "testing-id");
+    expect(getByTestId("container-example-b")).toHaveAttribute("id", "testing-id");
+    expect(getByTestId("icon-example-b")).toHaveAttribute("id", "testing-id");
+    expect(getByTestId("text-example-b")).toHaveAttribute("id", "testing-id");
   });
 
   it("Should have text", () => {
     const { getByTestId } = render(component);
-    expect(getByTestId("example-b-text")).toHaveTextContent("This is testing text");
+    expect(getByTestId("text-example-b")).toHaveTextContent("This is testing text");
   });
 
   it("Should have a class name testing-class", () => {
     const { getByTestId } = render(component);
-    expect(getByTestId("example-b-container")).toHaveClass("testing-class");
-    expect(getByTestId("example-b-icon")).toHaveClass("testing-class");
-    expect(getByTestId("example-b-text")).toHaveClass("testing-class");
+    expect(getByTestId("container-example-b")).toHaveClass("testing-class");
+    expect(getByTestId("icon-example-b")).toHaveClass("testing-class");
+    expect(getByTestId("text-example-b")).toHaveClass("testing-class");
   });
 
   it("Should have a style attribute with value color: #ff0000", () => {
     const { getByTestId } = render(component);
-    expect(getByTestId("example-b-container")).toHaveStyle("color: #ff0000");
-    expect(getByTestId("example-b-icon")).toHaveStyle("color: #ff0000");
-    expect(getByTestId("example-b-text")).toHaveStyle("color: #ff0000");
+    expect(getByTestId("container-example-b")).toHaveStyle("color: #ff0000");
+    expect(getByTestId("icon-example-b")).toHaveStyle("color: #ff0000");
+    expect(getByTestId("text-example-b")).toHaveStyle("color: #ff0000");
   });
 });
 
