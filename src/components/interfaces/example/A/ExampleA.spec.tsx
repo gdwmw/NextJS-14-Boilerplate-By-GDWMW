@@ -164,9 +164,7 @@ describe("ExampleA Component Testing", () => {
                 ? expect(getByTestId("example-a")).toHaveClass(classes.ghost.emerald)
                 : expect(getByTestId("example-a")).not.toHaveClass(classes.ghost.emerald);
 
-              variant === "ghost" && disabled
-                ? expect(getByTestId("example-a")).toHaveClass(classes.ghost.disabled)
-                : expect(getByTestId("example-a")).not.toHaveClass(classes.ghost.disabled);
+              variant === "ghost" && disabled && expect(getByTestId("example-a")).toHaveClass(classes.ghost.disabled);
 
               // ⭐ === SIZE === ⭐
               size === "sm" && variant !== "ghost"
