@@ -25,7 +25,7 @@ const classes = {
   ghost: {
     rose: "text-rose-400 hover:text-rose-500 active:text-rose-600",
     emerald: "text-emerald-400 hover:text-emerald-500 active:text-emerald-600",
-    disabled: "text-gray-500",
+    disabled: "text-gray-400",
   },
   size: {
     sm: "h-10 min-w-28 px-3 text-base",

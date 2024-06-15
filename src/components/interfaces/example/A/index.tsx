@@ -51,7 +51,7 @@ export const ExampleATWM = ({ className, color, disabled, size, variant }: TExam
 
     variant === "ghost" && color === "emerald" && !disabled && "text-emerald-400 hover:text-emerald-500 active:text-emerald-600",
 
-    variant === "ghost" && disabled && "text-gray-500",
+    variant === "ghost" && disabled && "text-gray-400",
 
     // ⭐ === SIZE === ⭐
     size === "sm" && variant !== "ghost" && "h-10 min-w-28 px-3 text-base",
