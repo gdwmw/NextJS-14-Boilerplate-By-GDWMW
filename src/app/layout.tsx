@@ -26,7 +26,7 @@ type T = {
 
 const RootLayout: FC<T> = ({ children }): ReactElement => {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>{children}</body>
     </html>
   );
