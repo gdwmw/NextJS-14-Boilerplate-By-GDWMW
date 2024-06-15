@@ -4,9 +4,13 @@ import { FC, ReactElement, ReactNode } from "react";
 
 import { ThemeProvider } from "next-themes";
 
-export const NextThemesProvider: FC<{ children: ReactNode }> = ({ children }): ReactElement => {
+type T = {
+  children: ReactNode;
+};
+
+export const NextThemesProvider: FC<T> = ({ children }): ReactElement => {
   return (
-    <ThemeProvider attribute="class" enableColorScheme={false} enableSystem>
+    <ThemeProvider enableColorScheme={false} enableSystem>
       {children}
     </ThemeProvider>
   );
