@@ -2,11 +2,9 @@ import { DetailedHTMLProps, FC, HTMLAttributes, ReactElement } from "react";
 
 import { twm } from "@/libs";
 
-/* eslint-disable perfectionist/sort-union-types */
 type TContainerExampleB = { className?: string } & DetailedHTMLProps<HTMLAttributes<HTMLElement>, HTMLElement>;
 type TIconExampleB = { className?: string } & DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
 type TTextExampleB = { className?: string } & DetailedHTMLProps<HTMLAttributes<HTMLSpanElement>, HTMLSpanElement>;
-/* eslint-enable perfectionist/sort-union-types */
 
 export const ContainerExampleB: FC<TContainerExampleB> = ({ className, ...props }): ReactElement => {
   return (
