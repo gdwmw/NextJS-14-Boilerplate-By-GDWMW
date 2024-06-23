@@ -42,9 +42,9 @@ describe("ExampleB Component Testing", () => {
     expect(getByTestId("icon-example-b")).toHaveStyle("color: #ff0000");
     expect(getByTestId("text-example-b")).toHaveStyle("color: #ff0000");
   });
-});
 
-it("Should have an icon", () => {
-  const { getByTestId } = render(component);
-  expect(getByTestId("testing-icon")).toBeInTheDocument();
+  it("Should have an icon", () => {
+    const { getByTestId } = render(component);
+    expect(getByTestId("testing-icon")).toBeInTheDocument();
+  });
 });
