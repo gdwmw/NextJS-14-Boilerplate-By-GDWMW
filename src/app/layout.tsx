@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-import { FC, ReactElement, ReactNode } from "react";
+import { FC, PropsWithChildren, ReactElement } from "react";
 
 import { Inter } from "next/font/google";
 
@@ -20,14 +20,12 @@ export const metadata: Metadata = {
   },
 };
 
-type T = {
-  children: ReactNode;
-};
+type T = PropsWithChildren;
 
-const RootLayout: FC<T> = ({ children }): ReactElement => {
+const RootLayout: FC<T> = ({ ...props }): ReactElement => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>{props.children}</body>
     </html>
   );
 };

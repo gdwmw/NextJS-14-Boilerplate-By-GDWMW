@@ -1,17 +1,15 @@
 "use client";
 
-import { FC, ReactElement, ReactNode } from "react";
+import { FC, PropsWithChildren, ReactElement } from "react";
 
 import { ThemeProvider } from "next-themes";
 
-type T = {
-  children: ReactNode;
-};
+type T = PropsWithChildren;
 
-export const NextThemesProvider: FC<T> = ({ children }): ReactElement => {
+export const NextThemesProvider: FC<T> = ({ ...props }): ReactElement => {
   return (
     <ThemeProvider enableColorScheme={false} enableSystem>
-      {children}
+      {props.children}
     </ThemeProvider>
   );
 };
