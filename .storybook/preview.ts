@@ -1,11 +1,6 @@
-import type { Preview } from "@storybook/react";
+import { withThemeByDataAttribute } from "@storybook/addon-themes";
+import { Preview, Renderer } from "@storybook/react";
 import "../src/app/globals.css";
-
-export const globalTypes = {
-  themes: {
-    defaultValue: ["light", "dark"],
-  },
-};
 
 const preview: Preview = {
   parameters: {
@@ -16,6 +11,16 @@ const preview: Preview = {
       },
     },
   },
+  decorators: [
+    withThemeByDataAttribute<Renderer>({
+      themes: {
+        light: "light",
+        dark: "dark",
+      },
+      defaultTheme: "light",
+      attributeName: "data-theme",
+    }),
+  ],
 };
 
 export default preview;
