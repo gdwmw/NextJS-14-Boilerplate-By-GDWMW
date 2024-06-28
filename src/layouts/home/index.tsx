@@ -1,11 +1,13 @@
 import { FC, ReactElement } from "react";
 
-import { Footer, Header, Main } from "./modules";
+import { ASide, Footer, Header, Main, Nav } from "./modules";
 
 export const HomeLayout: FC = (): ReactElement => {
   return (
     <>
       <Header />
+      <Nav />
+      <ASide />
       <Main />
       <Footer />
     </>
